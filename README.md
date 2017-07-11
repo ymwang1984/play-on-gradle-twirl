@@ -17,9 +17,26 @@ And then go to http://localhost:9000 to see the running web application.
 Gradle only comprehends html templates. If the controller refers to js template, the compilation fails.
 
 ```
-gradle runPlayBinary
+gradle wrapper --gradle-version 4.0
+./gradlew runPlayBinary
 ```
 
-And then go to http://localhost:9000 to see the running web application.
-
 Check app/controllers/Application.scala for more info.
+
+The compilation error is:
+
+```
+> Task :compilePlayBinaryScala
+Pruning sources from previous analysis, due to incompatible CompileSetup.
+/Users/ymwang/Downloads/play-on-gradle-twirl/app/controllers/Application.scala:15: object generic is not a member of package views.js
+    Ok(views.js.generic.render("foo.js", "payload"))
+                ^
+one error found
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compilePlayBinaryScala'.
+> Compilation failed
+```
