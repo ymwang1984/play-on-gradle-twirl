@@ -1,0 +1,6 @@
+rm -rf target project/target project/project logs 
+
+rm -rf build .gradle
+
+find . -name "*.DS_Store" -type f -delete
+
