@@ -7,36 +7,18 @@ This is a demo of different twirl templates (html, js) used in Play.
 Sbt compiles either html or js twirl templates under app/views/.
 
 ```
-./sbt run
+./sbt compile
 ```
 
-And then go to http://localhost:9000 to see the running web application.
+And then check "target/scala-2.11/twirl/main/views/js/generic.template.scala" and you'll find "play.twirl.api.JavaScriptFormat" which is the correct interpretation since the template uses @JavaScript annotation.
 
 ## Gradle
 
-Gradle only comprehends html templates. If the controller refers to js template, the compilation fails.
+Gradle only comprehends html format.
 
 ```
 gradle wrapper --gradle-version 4.0
-./gradlew runPlayBinary
+./gradlew compilePlayBinaryPlayTwirlTemplates
 ```
 
-Check app/controllers/Application.scala for more info.
-
-The compilation error is:
-
-```
-> Task :compilePlayBinaryScala
-Pruning sources from previous analysis, due to incompatible CompileSetup.
-/Users/ymwang/Downloads/play-on-gradle-twirl/app/controllers/Application.scala:15: object generic is not a member of package views.js
-    Ok(views.js.generic.render("foo.js", "payload"))
-                ^
-one error found
-
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':compilePlayBinaryScala'.
-> Compilation failed
-```
+Check "build/src/play/binary/twirlTemplatesScalaSources/views/js/generic.template.scala" and you'll find "play.twirl.api.HtmlFormat" which is the incorrect format because the template specifies @JavaScript annotation. This format difference will cause rending issue in the Play front-ends.

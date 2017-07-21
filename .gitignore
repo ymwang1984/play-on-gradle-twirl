@@ -1,6 +1,7 @@
 .gradle
 /build/
 /project/project
+/project/target
 /target/
 /logs/
 .DS_Store
