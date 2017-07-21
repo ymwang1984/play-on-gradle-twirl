@@ -10,7 +10,7 @@ Sbt compiles either html or js twirl templates under app/views/.
 ./sbt compile
 ```
 
-And then check "target/scala-2.11/twirl/main/views/js/generic.template.scala" and you'll find "play.twirl.api.JavaScriptFormat" which is the correct interpretation since the template uses @JavaScript annotation.
+And then check "target/scala-2.11/twirl/main/views/js/generic.template.scala" and you'll find "play.twirl.api.JavaScriptFormat" which is the correct interpretation since the template uses @JavaScript annotation in app/views/generic.scala.js.
 
 ## Gradle
 
