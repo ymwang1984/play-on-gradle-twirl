@@ -6,7 +6,7 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayJava)
-  .settings(TwirlKeys.templateFormats += ("sh" -> "play.twirl.api.HtmlFormat"))
+  .settings(TwirlKeys.templateFormats += ("csv" -> "views.CsvFormat"))
   .settings(TwirlKeys.templateImports ++= Seq("java.util.Random", "java.util.Map"))
 
 scalaVersion := "2.11.11"
